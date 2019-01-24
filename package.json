@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "description": "A simple notification service for push notifications on your phone!",
   "main": "notifik.js",
-  "bin": "notifik",
+  "bin": {
+    "notifik": "./notifik.js"
+  },
   "preferGlobal": true,
   "scripts": {
     "test": "mocha"

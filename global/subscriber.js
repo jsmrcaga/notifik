@@ -87,7 +87,7 @@ class Subscriber {
 
 		let existing = this.subscriptions.find(sub => sub.id === id);
 		if(!existing) {
-			return Promise.reject(new Error(`[Subscriptions] Subscription with ${id} does not exist`));
+			return Promise.reject(new Error(`[Subscriptions] Subscription with id: ${id} does not exist`));
 		}
 
 		return Promise.resolve(existing.subscription);

@@ -6,7 +6,7 @@ const router = express.Router();
 
 // Manage notifications
 router.get('/', (req, res) => {
-	res.render('index');
+	res.end('Hello!');
 });
 
 // Subscribe to notifications
@@ -20,11 +20,11 @@ router.use('/api', require('./api'));
 // Error handling
 router.use((err, req, res, next) => {
 	if(err instanceof RequestError) {
-		redfox.error('[HTTP] Error', err.message);
+		redfox.error('[HTTP][Error]', err.message);
 		return res.status(err.code || 500).json(err);
 	}
 
-	redfox.error('[HTTP] Error', err);
+	redfox.error('[HTTP][Error]', err);
 
 	return res.status(500).json({
 		error: {

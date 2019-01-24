@@ -7,12 +7,11 @@ const express = require('express');
 const api = express.Router();
 
 api.use('/', require('./middleware/security')({
-	ignore: '/config'
+	ignore: ['/config', '/subscribe']
 }));
 
 api.get('/config', (req, res) => {
 	return res.json({
-		api_key: Config.api_key,
 		service_worker: Config.service_worker
 	});
 });
@@ -54,12 +53,16 @@ api.get('/subscriptions', (req, res) => {
 
 // Notifiy subscriber
 api.post('/notify', (req, res) => {
-	let {user_id, ...notifParams} = req.body;
+	let {id, ...notifParams} = req.body;
 	if(!notifParams.title && !notifParams.body) {
 		throw new RequestError('Title or body required', 400);
 	}
 
-	Notifications.notify(user_id, notifParams).then((err) => {
+	if(!id) {
+		throw new RequestError('id is required', 400);
+	}
+
+	Notifications.notify(id, notifParams).then((err) => {
 		if(err) {
 			throw err;
 		}
