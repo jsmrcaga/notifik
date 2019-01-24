@@ -1,6 +1,6 @@
 {
   "name": "notifik",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A simple notification service for push notifications on your phone!",
   "main": "notifik.js",
   "bin": {
