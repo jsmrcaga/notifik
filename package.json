@@ -1,0 +1,26 @@
+{
+  "name": "notifik",
+  "version": "0.0.0",
+  "description": "A simple notification service for push notifications on your phone!",
+  "main": "notifik.js",
+  "bin": "notifik",
+  "preferGlobal": true,
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "notifications",
+    "push",
+    "android",
+    "ios"
+  ],
+  "author": "Jo Colina <jo@jocolina.com>",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "mustache-express": "^1.2.8",
+    "redfox": "^0.2.0",
+    "web-push": "^3.3.3"
+  }
+}
